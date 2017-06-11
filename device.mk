@@ -200,7 +200,7 @@ PRODUCT_PACKAGES += \
 # FMRadio
 PRODUCT_PACKAGES += \
     FMRadio \
-    libmtkplayer
+    libfmjni
 
 # Camera
 PRODUCT_PACKAGES += \
