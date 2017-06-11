@@ -5,7 +5,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product, device/wiko/v3750/vendor/copyfiles.mk)
 $(call inherit-product, vendor/wiko/v3750/v3750-vendor-blobs.mk)
 
-LOCAL_PATH := device/walton/v3750
+LOCAL_PATH := device/wiko/v3750
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
