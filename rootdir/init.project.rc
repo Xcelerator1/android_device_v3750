@@ -101,17 +101,7 @@ on post-fs-data
     mknod /dev/ampc0 c 151 0
     chown bluetooth bluetooth /dev/ampc0
     chmod 0660 /dev/ampc0
-    chmod 0666 /dev/sensors_state
 
-#Tgestrue
-    chmod 0666 /proc/tgeseture_config
-    
-#als_ps_sub
-    chmod 0666 /sys/bus/platform/drivers/als_ps_sub/gsensorState
-    chmod 0666 /sys/bus/platform/drivers/als_ps_sub/audioChannel
-    chmod 0666 /sys/bus/platform/drivers/als_ps_sub/receiverSwitch
-    chmod 0666 /sys/bus/platform/drivers/als_ps_sub/speakerSwitch
-    chmod 0666 /sys/bus/platform/drivers/als_ps_sub/micSwitch
 #
 # Connectivity related device nodes & configuration (end)
 #
@@ -177,29 +167,4 @@ service spm_script /system/bin/spm_loader
     group root
     class core
     oneshot
-
-#
-# vtservice
-#
-service vtservice /system/bin/vtservice
-        class main
-        socket soc_vt_tcv dgram 660 radio system
-        socket soc_vt_stk dgram 660 radio system
-        socket soc_vt_svc dgram 660 radio system
-        user system
-        group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
-        ioprio rt 4
-
-
-#on property:persist.sys.area.current=DU
-#    wait /system/etc/launcher_res/
-#    symlink /system/etc/launcher_res/ /data/launcher_res
-
-#on property:persist.sys.area.current=VN
-#    wait /system/etc/launcher_res/
-#    symlink /system/etc/launcher_res/ /data/launcher_res
-
-#on property:persist.sys.area.current=TH
-#    wait /system/etc/launcher_res/
-#    symlink /system/etc/launcher_res/ /data/launcher_res
 

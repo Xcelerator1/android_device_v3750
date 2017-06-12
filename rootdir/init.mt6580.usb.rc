@@ -1,7 +1,7 @@
 on boot
     setprop sys.usb.vid 0E8D
- ###   write /sys/class/android_usb/android0/iManufacturer MediaTek
- ###   write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+    write /sys/class/android_usb/android0/iManufacturer MediaTek
+    write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     write /sys/class/android_usb/android0/f_rndis/wceis 1
     write /sys/class/android_usb/android0/f_rndis/manufacturer MediaTek    
@@ -370,6 +370,13 @@ on property:sys.usb.config=accessory,audio_source,adb
 
 #34.USB Charging Only configuration
 on property:sys.usb.config=charging
+#wqtao.add.start.
+    write /sys/class/android_usb/android0/enable 0
+	write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
+	write /sys/class/android_usb/android0/idProduct 2008
+	write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+#wqtao.add.end.
     setprop sys.usb.state ${sys.usb.config}
     setprop sys.usb.charging yes
 
