@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_v3750.mk
+    $(LOCAL_DIR)/slim_v3750.mk
